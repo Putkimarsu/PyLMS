@@ -239,7 +239,10 @@ class Server(object):
         return text.encode(self.charset)
 
     def __decode(self, bytes):
-        return bytes.decode(self.charset)
+        try:
+            return bytes.decode(self.charset)
+        except:
+            return bytes
 
     def __quote(self, text):
         try:
